@@ -22,6 +22,6 @@ jobs:
         run: |
           ossutil config -e ${{ secrets.OSS_ENDPOINT }} -i ${{ secrets.OSS_ACCESS_KEY_ID }} -k ${{ secrets.OSS_ACCESS_KEY_SECRET }}
 
-      - name: Upload to OSS (with delete)
+      - name: Sync to OSS (with delete)
         run: |
-          ossutil cp ./ oss://${{ secrets.OSS_BUCKET }}/ --recursive --force --delete 
+          ossutil sync ./ oss://${{ secrets.OSS_BUCKET }}/ --delete --force 
