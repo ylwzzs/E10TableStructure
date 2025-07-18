@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# 快速更新别名脚本
+# 使用方法: ./update [选项]
+
+# 获取脚本所在目录
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+# 执行快速更新脚本
+python3 quick_update.py "$@" 

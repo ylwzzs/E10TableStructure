@@ -1,0 +1,5 @@
+beautifulsoup4==4.12.2
+chardet==5.2.0
+lxml==4.9.3
+watchdog==3.0.0
+tqdm==4.66.1 
