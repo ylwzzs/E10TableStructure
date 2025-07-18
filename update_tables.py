@@ -17,7 +17,7 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 import chardet
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Tag
 import argparse
 import logging
 from tqdm import tqdm
@@ -83,63 +83,80 @@ class TableStructureUpdater:
             return False
     
     def parse_html_file(self, file_path):
-        """解析HTML文件，提取表结构信息"""
+        """解析HTML文件，提取表结构信息（重写，参考parse_html_tables.py）"""
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
-                content = f.read()
-            
-            soup = BeautifulSoup(content, 'html.parser')
-            
-            # 提取表名（从文件名或页面内容）
-            table_name = file_path.stem
-            if '(' in table_name and ')' in table_name:
-                # 处理类似 "table_name(描述)_id.html" 的格式
-                table_name = table_name.split('(')[0]
-            
-            # 提取中文描述
-            table_comment = ""
-            description = ""
-            
-            # 尝试从页面标题或内容中提取描述
-            title_tag = soup.find('title')
-            if title_tag:
-                title_text = title_tag.get_text().strip()
-                if '(' in title_text and ')' in title_text:
-                    table_comment = title_text.split('(')[1].split(')')[0]
-                    description = title_text
-            
-            # 尝试从页面内容中提取更多信息
-            body_text = soup.get_text()
-            
-            # 提取模块信息（如果存在）
-            module = ""
-            if "模块" in body_text or "微服务" in body_text:
-                # 简单的模块提取逻辑，可以根据实际HTML结构调整
-                lines = body_text.split('\n')
-                for line in lines:
-                    if "模块" in line or "微服务" in line:
-                        module = line.strip()
-                        break
-            
-            # 提取数据库信息（如果存在）
-            db_name = ""
-            if "数据库" in body_text:
-                lines = body_text.split('\n')
-                for line in lines:
-                    if "数据库" in line:
-                        db_name = line.strip()
-                        break
-            
+                soup = BeautifulSoup(f, 'html.parser')
+
+            # 初始化字段
+            table_name = None
+            table_comment = None
+            db_name = None
+            module = None
+            description = None
+
+            # 只遍历Tag类型的table和tr，避免linter错误
+            main_table = None
+            for t in soup.find_all('table'):
+                if isinstance(t, Tag):
+                    main_table = t
+                    break
+            if main_table:
+                for row in main_table.find_all('tr'):
+                    if not isinstance(row, Tag):
+                        continue
+                    cells = [c for c in row.find_all('td') if isinstance(c, Tag)]
+                    if len(cells) >= 4:
+                        if '数据库表名' in cells[2].get_text():
+                            table_name = cells[3].get_text(strip=True)
+                        if len(cells) >= 7 and '中文名词' in cells[5].get_text():
+                            table_comment = cells[6].get_text(strip=True)
+                        if '所属数据库' in cells[2].get_text():
+                            db_name = cells[3].get_text(strip=True)
+                        if '所属模块' in cells[2].get_text():
+                            module = cells[3].get_text(strip=True)
+                        if len(cells) >= 7 and '描述' in cells[5].get_text():
+                            description = cells[6].get_text(strip=True)
+
+            # 查找字段详细信息表（可选）
+            fields = []
+            detail_table = None
+            for t in soup.find_all('table', class_='detail-table-content-table'):
+                if isinstance(t, Tag):
+                    detail_table = t
+                    break
+            if detail_table:
+                for row in detail_table.find_all('tr'):
+                    if not isinstance(row, Tag):
+                        continue
+                    cols = [c for c in row.find_all('td') if isinstance(c, Tag)]
+                    # 跳过表头和隐藏行
+                    if len(cols) >= 13 and cols[1].get_text(strip=True).isdigit():
+                        field = {
+                            'name': cols[2].get_text(strip=True),
+                            'comment': cols[3].get_text(strip=True),
+                            'type': cols[4].get_text(strip=True),
+                            'length': cols[5].get_text(strip=True),
+                            'nullable': '是' if 'checked' in str(cols[6]) else '否',
+                            'is_foreign_key': '是' if 'checked' in str(cols[7]) else '否',
+                            'is_auto_increment': '是' if 'checked' in str(cols[8]) else '否',
+                            'default': cols[9].get_text(strip=True),
+                            'is_primary_key': '是' if 'checked' in str(cols[10]) else '否',
+                            'foreign_key_info': cols[11].get_text(strip=True),
+                            'description': cols[12].get_text(strip=True),
+                        }
+                        fields.append(field)
+
             return {
-                "table_name": table_name,
-                "table_comment": table_comment,
-                "module": module,
-                "db_name": db_name,
-                "description": description,
-                "file": f"resources/{file_path.name}",
-                "last_updated": datetime.now().isoformat()
+                'file': f"resources/{file_path.name}",
+                'table_name': table_name,
+                'table_comment': table_comment,
+                'db_name': db_name,
+                'module': module,
+                'description': description,
+                'fields': fields,
+                'last_updated': datetime.now().isoformat()
             }
-            
         except Exception as e:
             logger.error(f"解析HTML文件失败 {file_path}: {e}")
             return None
