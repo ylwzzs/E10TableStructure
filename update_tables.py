@@ -136,7 +136,7 @@ class TableStructureUpdater:
                 "module": module,
                 "db_name": db_name,
                 "description": description,
-                "file": file_path.name,
+                "file": f"resources/{file_path.name}",
                 "last_updated": datetime.now().isoformat()
             }
             
@@ -173,7 +173,13 @@ class TableStructureUpdater:
     
     def get_html_files(self):
         """获取所有HTML文件"""
-        return list(self.source_dir.glob("*.html"))
+        # 查找resources目录下的HTML文件
+        resources_dir = self.source_dir / "resources"
+        if resources_dir.exists():
+            return list(resources_dir.glob("*.html"))
+        else:
+            # 如果resources目录不存在，查找根目录下的HTML文件
+            return list(self.source_dir.glob("*.html"))
     
     def update_tables_data(self, force_update=False):
         """更新表结构数据"""
