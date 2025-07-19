@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编码测试页面</title>
+</head>
+<body>
+    <h1>UTF-8编码测试</h1>
+    <p>如果您能看到这些中文字符正常显示，说明编码设置正确：</p>
+    <ul>
+        <li>数据库表结构查询系统</li>
+        <li>快速查找和浏览系统数据库表结构文档</li>
+        <li>所属模块、微服务、所属数据库</li>
+        <li>考勤假期优先级流程结果</li>
+        <li>AI智能平台、OpenAPI开放平台</li>
+    </ul>
+    
+    <h2>特殊字符测试</h2>
+    <p>特殊符号：📊 🏢 🗄️ ⚙️ 📋 📝 🔄</p>
+    
+    <h2>JSON数据测试</h2>
+    <div id="jsonTest"></div>
+    
+    <script>
+        // 测试JSON数据加载
+        fetch('table_list.json')
+            .then(response => response.json())
+            .then(data => {
+                const testDiv = document.getElementById('jsonTest');
+                const sampleData = data.slice(0, 3);
+                testDiv.innerHTML = `
+                    <p>成功加载 ${data.length} 条数据</p>
+                    <p>示例数据：</p>
+                    <ul>
+                        ${sampleData.map(item => `
+                            <li>${item.table_name} - ${item.chinese_name} - ${item.module}</li>
+                        `).join('')}
+                    </ul>
+                `;
+            })
+            .catch(error => {
+                document.getElementById('jsonTest').innerHTML = `<p style="color: red;">加载失败: ${error}</p>`;
+            });
+    </script>
+</body>
+</html> 

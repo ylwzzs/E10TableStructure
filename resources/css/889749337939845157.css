@@ -1,0 +1,759 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial,PingFangSC-Light,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+.ebdpage-top {
+    display: none;
+}
+
+.weapp-ebpv-styled-flow {
+    border: 1px solid #e5e5e5;
+}
+
+table {
+    border: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-break:break-all;
+}
+
+.ebdpage-content * {overflow-x: hidden;overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+td,th {
+    padding: 2px;
+}
+
+.financial-row-excel {
+    padding: 0;
+    height: 100%;
+}
+
+.financial-excel {
+    height: 100%;
+    float: right;
+}
+
+.financial-box-excel {
+    font-size: 12px;
+    height: 100%;
+    float: right;
+}
+
+.financial-header-excel {
+    height: 50%;
+    border-left: none;
+    min-height: 18px;
+    text-align: right;
+    display: table;
+    table-layout: fixed;
+}
+
+.financial-content-excel {
+    border-left: none;
+    display: table;
+    table-layout: fixed;
+    min-height: 26px;
+    height: 100%;
+    text-align: right;
+}
+
+.financial-table-header-excel.financial-header-excel,
+.financial-row-excel .financial-content-excel {
+    float: right;
+}
+
+
+.financial-item-excel {
+    font-size: 12px;
+    min-width: 18px;
+    border-right: 1px solid #000;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.financial-title-excel{
+    float: left;
+    width: 100%;
+    height: 50%;
+    border-bottom: 1px solid #000;
+    padding: 0 !important;
+}
+
+.financial-header-excel .financial-item-excel:nth-last-child(1) {
+    border-right: none
+}
+
+.financial-header-excel .financial-item-excel:nth-last-child(3) {
+    border-right: 2px solid #ff0000
+}
+
+.financial-header-excel .financial-item-excel:nth-last-child(5) {
+    border-right: 2px solid #0000ff
+}
+
+.financial-header-excel .financial-item-excel:nth-last-child(9) {
+    border-right: 2px solid #0000ff
+}
+
+.financial-header-excel .financial-item-excel:nth-last-child(12) {
+    border-right: 2px solid #0000ff
+}
+
+.financial-content-excel .financial-item-excel:nth-last-child(1) {
+    border-right: none
+}
+
+.financial-content-excel .financial-item-excel:nth-last-child(3) {
+    border-right: 2px solid #ff0000
+}
+
+.financial-content-excel .financial-item-excel:nth-last-child(5) {
+    border-right: 2px solid #0000ff
+}
+
+.financial-content-excel .financial-item-excel:nth-last-child(9) {
+    border-right: 2px solid #0000ff
+}
+
+.financial-content-excel .financial-item-excel:nth-last-child(12) {
+    border-right: 2px solid #0000ff
+}
+
+.weapp-form-widget-divider {
+    width: 100%;
+}
+
+.weapp-form-widget-divider ~ .weapp-form-widget-divider {
+    border-top: 1px solid #f2f2f2;
+}
+
+.weapp-ebpv-styled-flow .weapp-form-widget.weapp-form-field {
+    padding: 5px 16px;
+}
+
+.weapp-form-widget.weapp-form-widget--hoz {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+.weapp-form-widget-title {
+    display: inline-block;
+    font-size: 12px;
+    color: #666;
+    word-break: break-word;
+    max-width: 100%;
+    line-height: 30px;
+    padding-left: 5px;
+    padding-right: 4px;
+}
+
+.weapp-form-widget.weapp-form-widget--hoz .weapp-form-widget-title {
+    display: table-cell;
+    text-align: right;
+    padding-left: 0;
+    width: 80px;
+    vertical-align: middle;
+}
+
+.weapp-form-widget-desc {
+    color: #999;
+    font-size: 12px;
+    padding: 7px 0 5px;
+}
+.weapp-form-widget.weapp-form-widget--ver .weapp-form-widget-desc {
+    border-top: 1px dashed #e5e5e5;
+}
+.weapp-form-widget.weapp-form-widget--hoz .weapp-form-widget-desc {
+    border-bottom: 1px dashed #e5e5e5;
+}
+
+.weapp-form-widget-content {
+    padding: 0 5px;
+}
+.weapp-form-widget-content-container {
+    min-height: 30px;
+    line-height: 1.5;
+}
+.weapp-form-widget-content-container > div {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.weapp-form-detail-table-header {
+    padding: 6px 0;
+}
+.weapp-form-detail-table-title {
+    padding: 2px 12px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.weapp-form-detail-table-desc {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #999999;
+    border-top: 1px dashed #f2f2f2;
+    word-break: break-word;
+}
+.weapp-form-detail-table > table {
+    min-width: 100%;
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+    word-break:break-all;
+}
+.weapp-form-detail-table > table th,
+.weapp-form-detail-table > table td {
+    height: 40px;
+    line-height: 24px;
+    color: #111;
+    padding: 0 4px;
+    border: 1px solid #f2f2f2;
+    overflow-x: hidden;
+}
+.weapp-form-detail-table > table th:first-child,
+.weapp-form-detail-table > table td:first-child {
+    text-align: center;
+}
+.weapp-form-detail-table > table th {
+    font-weight: 400;
+    background-color: #fbfbfb;
+}
+.weapp-form-detail-table__empty {
+    color: #666;
+    text-align: center;
+}
+
+.weapp-form-collapse .weapp-form-collapse {
+    margin: 15px;
+    border: 1px solid #e5e5e5;
+}
+.weapp-form-collapse-title {
+    font-size: 14px;
+    color: #323233;
+    padding: 10px 16px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #f2f2f2;
+}
+.weapp-form-collapse-desc {
+    font-weight: 400;
+    text-align: left;
+    color: #999999;
+    word-break: break-word;
+}
+
+.weapp-form-tab-title {
+    width: 100%;
+    height: 35px;
+    padding: 0 16px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.weapp-form-tab-title-item {
+    line-height: 33px;
+    float: left;
+    margin-right: 24px;
+    white-space: nowrap;
+}
+.weapp-form-tab-title-item-active {
+    color: #5d9cec;
+    border-bottom: 2px solid #5d9cec;
+}
+.weapp-form-tab-title-item:last-child {
+    margin-right: 0;
+}
+
+.weapp-form-column {
+    width: 100%;
+    min-height: 46px;
+    display: table;
+    table-layout: fixed;
+}
+.weapp-form-column-content {
+    min-height: 46px;
+    display: table-cell;
+}
+.weapp-form-column-two .weapp-form-column-content {
+    width: 49%;
+}
+.weapp-form-column-three .weapp-form-column-content {
+    width: 33%;
+}
+.weapp-form-column-content + .weapp-form-column-content {
+    border-left: 1px solid #e5e5e5;
+}
+
+.weapp-form-option-wrapper {
+    min-height: 26px;
+}
+.weapp-form-option-content__ver .weapp-form-option-item {
+    display: block;
+    margin-bottom: 4px;
+}
+.weapp-form-option-content__hoz .weapp-form-option-item {
+    display: inline-block;
+    margin-right: 16px;
+    margin-bottom: 4px;
+}
+.weapp-form-option-item:last-child {
+    margin-right: 0;
+    margin-bottom: 0;
+}
+.weapp-form-option-item-container {
+    line-height: 26px;
+    min-height: 26px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.weapp-form-option-content__default-tag .weapp-form-option-item-container {
+    color: #666;
+    padding: 0 10px;
+    border-radius: 3px;
+    background-color: #f5f5f5 !important;
+}
+.weapp-form-option-content__tag .weapp-form-option-item-container {
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 3px;
+}
+.weapp-form-option-score {
+    font-size: 12px;
+    color: #999;
+}
+.weapp-form-option-content__img .weapp-form-option-item {
+    width: 120px;
+    background-color: #fff;
+    display: inline-table;
+    margin: 8px 8px 8px 0;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+.weapp-form-option-content__img.weapp-form-option-content__hoz .weapp-form-option-item:last-child {
+    margin-right: 0;
+}
+.weapp-form-option-content__img.weapp-form-option-content__ver .weapp-form-option-item:last-child {
+    margin-bottom: 0;
+}
+.weapp-form-option-content__img .weapp-form-option-item-container {
+    padding: 0 6px;
+}
+.weapp-form-option-content__img.weapp-form-option-content__ver .weapp-form-option-item {
+    display: block;
+}
+
+
+.weapp-form-paragraph {
+    line-height: normal;
+    font-size: 14px;
+    padding: 7px 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.weapp-form-paragraph p {
+    margin: 0;
+}
+.weapp-form-paragraph img {
+    width: 100%;
+}
+.weapp-form-paragraph.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6
+}
+.weapp-form-paragraph.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1
+}
+.weapp-form-paragraph.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc
+}
+.weapp-form-paragraph.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1
+}
+.weapp-form-paragraph.alert-e-default {
+    border: 1px solid #dedede;
+    background: #f9f9f9;
+}
+
+
+.weapp-form-switch-btn {
+    width: 36px;
+    height: 20px;
+    position: relative;
+    opacity: .5;
+    vertical-align: middle;
+    border-radius: 53px;
+    border: 1px solid transparent;
+    background-color: #ccc;
+}
+.weapp-form-switch-inner {
+    width: 18px;
+    height: 18px;
+    color: #fff;
+    position: absolute;
+    left: 1px;
+    top: 0;
+    border-radius: 50% 50%;
+    background-color: #fff;
+}
+.weapp-form-switch__checked .weapp-form-switch-btn {
+    background-color: #5d9cec;
+}
+.weapp-form-switch__checked .weapp-form-switch-btn .weapp-form-switch-inner {
+    left: unset;
+    right: 1px;
+}
+
+.weapp-form-divideline-line {
+    width: 100%;
+    border-width: 1px 0 0;
+    border-style: solid;
+    border-color: rgb(235, 235, 235);
+}
+
+.weapp-form-divideline-line2 {
+    border-width: 2px 0 0;
+}
+
+.weapp-form-divideline-line-dotted {
+    border-style: dashed;
+}
+
+.weapp-form-divideline-line-double {
+    border-width: 1px 0;
+    height: 3px;
+    border-style: solid;
+}
+
+.weapp-form-divideline-line-dashed {
+    border-style: dashed;
+    border-width: 2px 0 0;
+}
+
+.weapp-form-divideline-line-double-crude {
+    border-width: 2px 0;
+    height: 5px;
+    border-style: solid;
+}
+
+.weapp-form-divider-line-wrapper {
+    padding: 12px 0 !important;
+}
+
+
+.form-item-content-progress {
+    width: 100%;
+    display: table;
+}
+.form-item-content-progress span {
+    display: table-cell;
+    width: 40px;
+    text-align: right;
+    color: #999;
+}
+
+.progress {
+    width: 100%;
+    min-width: 20px;
+    height: 4px;
+    background: #ededed;
+    vertical-align: middle;
+}
+
+progress::-webkit-progress-bar {
+    background: #ededed;
+    border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+    background: #5d9cec;
+    border-radius: 4px;
+}
+
+.weapp-form-input-wrapper {
+    word-wrap: break-word;
+}
+
+.weapp-form-input-wrapper > p,
+.weapp-form-textarea-wrapper > p {
+    margin: 0;
+}
+.weapp-form-input-wrapper.weapp-form-widget-size--large {
+    width: 100%;
+}
+.weapp-form-input-wrapper.weapp-form-widget-size--medium {
+    width: 75%;
+}
+.weapp-form-input-wrapper.weapp-form-widget-size--small {
+    width: 50%;
+}
+.weapp-form-textarea-wrapper img {
+    max-width: 100%;
+}
+
+.weapp-form-image-upload-wrapper .weapp-form-image-item-content {
+    display: inline-block;
+    padding: 8px;
+}
+.weapp-form-image-upload-wrapper .weapp-form-image-item-content .weapp-form-image-item {
+    width: 100px;
+    height: 100px;
+    background-color: #ddd;
+    display: table-cell;
+    vertical-align: middle;
+}
+.weapp-form-image-upload-wrapper .weapp-form-image-item-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.weapp-form-file-upload-wrapper .weapp-form-file-upload-item {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    color: #999;
+}
+.weapp-form-file-upload-wrapper .weapp-form-file-item-content,
+.weapp-form-file-upload-wrapper .weapp-form-file-item-size {
+    display: table-cell;
+}
+.weapp-form-file-item-filename {
+    white-space: normal;
+    word-wrap: break-word;
+    color: #666;
+}
+.weapp-form-file-upload-wrapper .weapp-form-file-item-size {
+    padding-left: 10px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.weapp-form-carousel {
+    width: 100%;
+    padding: 0 !important;
+}
+.weapp-form-carousel img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.weapp-form-carousel-content {
+    text-align: center;
+    position: relative;
+    height: 250px;
+    margin-bottom: 6px;
+    background: #000000b3;
+}
+
+.weapp-form-aggregate {
+    padding: 5px 16px;
+    line-height: 30px;
+}
+
+.weapp-form-mobile-interaction-wrapper-title {
+    height: 30px;
+    line-height: 30px;
+}
+.weapp-form-mobile-interaction-operate-message {
+    width: 100%;
+    text-align: left;
+    border: 1px solid #f2f2f2;
+    border-collapse: collapse;
+}
+.weapp-form-mobile-interaction-operate-message tr {
+    height: 40px;
+}
+.weapp-form-mobile-interaction-operate-message td {
+    padding: 0 16px;
+    border-top: 1px solid #f2f2f2;
+}
+.weapp-form-mobile-interaction-operate-message th {
+    padding: 0 16px;
+    background-color: #fbfbfb;
+}
+.weapp-form-mobile-interaction-more {
+    color: #999;
+    text-align: center;
+}
+.weapp-form-mobile-interaction-empty {
+    color: #999;
+}
+
+.detail-title {
+    padding: 6px 12px;
+    display: block;
+    font-weight: 16px;
+}
+
+.detail-title-content {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.detail-title-content > .detail-title {
+    background-color: transparent;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.detail-title-content > .detail-desc {
+    flex: 1;
+    color: #666;
+    font-size: 14px;
+}
+
+.text {
+    display: inline-block;
+    word-break: break-word;
+}
+
+.botton-medium {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    padding: 6px 16px;
+}
+
+.botton-large {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-size: 16px;
+}
+
+.botton-samll {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    padding: 4px 6px;
+}
+
+.button-color {
+    color: #bbb;
+}
+
+.internal-title {
+    display: block;
+    padding: 5px;
+}
+
+.excel-hide {
+    display: none!important;
+}
+
+.excel-hide-cell>* {
+    display: none!important;
+}
+
+.multi-content>span>span:first-child {
+    display: inline-block;
+    max-width: 100%;
+    margin-right: 4px;
+}
+
+.multi-content>span:last-child>span:first-child {
+    margin-right: 0;
+}
+
+.money-capital {
+    margin-left: 4px;
+}
+
+.money-type {
+    color: #999;
+}
+
+/* 多列场景下，主表和分组中组件清除浮动影响 */
+.weapp-form-multiColumn .weapp-ebpv-styled-flow::after,
+.weapp-form-multiColumn .weapp-form-collapse-content > div::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* 多列场景下，强行调整分组组件的内置容器的块级元素 */
+.weapp-form-multiColumn .weapp-form-collapse-content > div {
+    display: block !important;
+}
+
+/* 多列场景下，主表和分组中组件浮动 */
+.weapp-form-multiColumn .weapp-ebpv-styled-flow > .weapp-form-widget-divider,
+.weapp-form-multiColumn .weapp-ebpv-styled-flow > .weapp-form-widget,
+.weapp-form-multiColumn .weapp-ebpv-styled-flow > .ebcom,
+.weapp-form-multiColumn .weapp-ebpv-styled-flow > [id],
+.weapp-form-multiColumn .weapp-ebpv-styled-flow > [data-comp],
+.weapp-form-multiColumn .weapp-ebpv-styled-flow > *,
+.weapp-form-multiColumn .weapp-ebpv-styled-flow .weapp-form-collapse-content > div > .weapp-form-widget-divider,
+.weapp-form-multiColumn .weapp-ebpv-styled-flow .weapp-form-collapse-content > div > .weapp-form-widget,
+.weapp-form-multiColumn .weapp-ebpv-styled-flow .weapp-form-collapse-content > div > .ebcom,
+.weapp-form-multiColumn .weapp-ebpv-styled-flow .weapp-form-collapse-content > div > [id],
+.weapp-form-multiColumn .weapp-ebpv-styled-flow .weapp-form-collapse-content > div > [data-comp],
+.weapp-form-multiColumn .weapp-ebpv-styled-flow .weapp-form-collapse-content > div > * {
+    width: 100%;
+    float: left;
+}
+/* 多列场景下，不同组件宽度设置 */
+.weapp-form-multiColumn .weapp-form-widget--column-3 {
+    width: 25% !important;
+}
+.weapp-form-multiColumn .weapp-form-widget--column-4 {
+    width: 33.33% !important;
+}
+.weapp-form-multiColumn .weapp-form-widget--column-6 {
+    width: 50% !important;
+}
+.weapp-form-multiColumn .weapp-form-widget--column-8 {
+    width: 66.66% !important;
+}
+.weapp-form-multiColumn .weapp-form-widget--column-9 {
+    width: 75% !important;
+}
+.weapp-form-multiColumn .weapp-form-widget--column-12 {
+    width: 100% !important;
+}
+
+/* 多列场景下，每行第一个组件需要补充指定样式 */
+.weapp-form-widget-first-comp {
+    clear: left;
+}
+
+/* 多列场景下，无分割线样式 */
+.weapp-form-disable-divider .weapp-form-widget__ColumnTwo, .weapp-form-disable-divider .weapp-form-widget__ColumnThree {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.weapp-form-disable-divider .weapp-form-widget__ColumnTwo + .weapp-form-widget__ColumnTwo,
+.weapp-form-disable-divider .weapp-form-widget__ColumnTwo + .weapp-form-widget__ColumnThree,
+.weapp-form-disable-divider .weapp-form-widget__ColumnThree + .weapp-form-widget__ColumnThree,
+.weapp-form-disable-divider .weapp-form-widget__ColumnThree + .weapp-form-widget__ColumnTwo {
+    border-top: none;
+}#weapp-form-layout__889762605043490819 .cell_c84f6ed045_0_0,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_0_8{font-size:12px;font-family:微软雅黑;color:#333;border-bottom:#ffffff26 1px solid;border-top:#ffffff26 1px solid;}#weapp-form-layout__889762605043490819 .cell_c84f6ed045_0_9{font-size:12px;font-family:微软雅黑;color:#333;border-bottom:#ffffff26 1px solid;border-top:#ffffff26 1px solid;text-align:right;}#weapp-form-layout__889762605043490819 .cell_c84f6ed045_0_10,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_0_11,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_0_12{border-bottom:#ffffff26 1px solid;border-top:#ffffff26 1px solid;}#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_0{font-size:12px;font-family:微软雅黑;color:#fff;background-color:#5D9CEC;border-bottom:#ebebeb 1px solid;border-top:#ebebeb 1px solid;text-align:center;}#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_1,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_2,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_3,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_4,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_5,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_6,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_7,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_8,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_9,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_10,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_11,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_1_12{font-size:12px;font-family:微软雅黑;color:#fff;background-color:#5D9CEC;border-bottom:#ebebeb 1px solid;border-top:#ebebeb 1px solid;}#weapp-form-layout__889762605043490819 .cell_c84f6ed045_2_0,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_4_0{color:#333;background-color:#4DC8EB;}#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_0{font-size:12px;font-family:微软雅黑;color:#333;border-bottom:#ebebeb 1px solid;border-top:#ebebeb 1px solid;text-align:center;}#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_1,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_2,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_3,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_4,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_5,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_6,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_7,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_8,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_9,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_10,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_11,#weapp-form-layout__889762605043490819 .cell_c84f6ed045_3_12{font-size:12px;font-family:微软雅黑;color:#333;border-bottom:#ebebeb 1px solid;border-top:#ebebeb 1px solid;}#weapp-form-layout__889762605043490819 .cell_Sheet1_1_2{font-size:22px;font-family:Arial,PingFangSC-Light,Hiragino Sans GB,Microsoft YaHei,sans-serif;font-weight:700;color:#2c8bf9;text-align:center;}#weapp-form-layout__889762605043490819 .cell_Sheet1_2_2,#weapp-form-layout__889762605043490819 .cell_Sheet1_2_3,#weapp-form-layout__889762605043490819 .cell_Sheet1_2_4,#weapp-form-layout__889762605043490819 .cell_Sheet1_2_5,#weapp-form-layout__889762605043490819 .cell_Sheet1_2_6,#weapp-form-layout__889762605043490819 .cell_Sheet1_7_2,#weapp-form-layout__889762605043490819 .cell_Sheet1_7_3,#weapp-form-layout__889762605043490819 .cell_Sheet1_7_4,#weapp-form-layout__889762605043490819 .cell_Sheet1_7_5,#weapp-form-layout__889762605043490819 .cell_Sheet1_7_6{font-size:14px;font-family:Arial,PingFangSC-Light,Hiragino Sans GB,Microsoft YaHei,sans-serif;font-weight:700;color:#2c8bf9;border-bottom:#2c8bf9 1px solid;}#weapp-form-layout__889762605043490819 .cell_Sheet1_4_2,#weapp-form-layout__889762605043490819 .cell_Sheet1_4_5,#weapp-form-layout__889762605043490819 .cell_Sheet1_5_2,#weapp-form-layout__889762605043490819 .cell_Sheet1_5_5,#weapp-form-layout__889762605043490819 .cell_Sheet1_6_5{font-size:12px;font-family:Arial,PingFangSC-Light,Hiragino Sans GB,Microsoft YaHei,sans-serif;}#weapp-form-layout__889762605043490819 .cell_Sheet1_4_3,#weapp-form-layout__889762605043490819 .cell_Sheet1_4_6,#weapp-form-layout__889762605043490819 .cell_Sheet1_5_3,#weapp-form-layout__889762605043490819 .cell_Sheet1_5_6,#weapp-form-layout__889762605043490819 .cell_Sheet1_6_3,#weapp-form-layout__889762605043490819 .cell_Sheet1_6_6{font-size:12px;font-family:Arial,PingFangSC-Light,Hiragino Sans GB,Microsoft YaHei,sans-serif;border-bottom:#2c8bf9 1px solid;}#weapp-form-layout__889762605043490819 .cell_Sheet1_9_2{border-bottom:#5d9cec 1px solid;border-left:#5d9cec 1px solid;border-right:#5d9cec 1px solid;border-top:#5d9cec 1px solid;}#weapp-form-layout__889762605043490819 .cell_Sheet1_9_3,#weapp-form-layout__889762605043490819 .cell_Sheet1_9_4,#weapp-form-layout__889762605043490819 .cell_Sheet1_9_5,#weapp-form-layout__889762605043490819 .cell_Sheet1_9_6{font-size:12px;font-family:微软雅黑;border-bottom:#5d9cec 1px solid;border-left:#5d9cec 1px solid;border-right:#5d9cec 1px solid;border-top:#5d9cec 1px solid;}body {}header h5{padding-left:15px; font-size:15px;}header h4{text-align:center; font-size:20px;}.ebdpage-header-container{    width: 100%;    display: -webkit-box;    -webkit-box-align: center;    margin-bottom: 16px;    border-top: 1px solid #f2f2f2;    border-left: 1px solid #f2f2f2;    text-align: center;    text-align: -webkit-center;}.ebdpage-form-item{    display: -webkit-box;    -webkit-box-align: center;    border-right: 1px solid #f2f2f2;    border-bottom: 1px solid #f2f2f2;    min-height: 50px;    -webkit-box-flex: 1; }.ebdpage-form-label{text-align:right;padding:0 16px;}
