@@ -23,9 +23,9 @@ jobs:
       
       - name: Deploy to Aliyun OSS
         env:
-          ALIYUN_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
-          ALIYUN_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
-          ALIYUN_OSS_ENDPOINT: ${{ secrets.OSS_ENDPOINT }}
-          ALIYUN_OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT: ${{ secrets.OSS_ENDPOINT }}
+          OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
         run: |
           python deploy.py
