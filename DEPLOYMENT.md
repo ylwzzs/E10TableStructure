@@ -33,10 +33,10 @@
 
 在GitHub仓库的Settings > Secrets and variables > Actions中添加以下secrets：
 
-- `ALIYUN_ACCESS_KEY_ID`: 阿里云AccessKey ID
-- `ALIYUN_ACCESS_KEY_SECRET`: 阿里云AccessKey Secret
-- `ALIYUN_OSS_ENDPOINT`: OSS Endpoint（如：oss-cn-hangzhou.aliyuncs.com）
-- `ALIYUN_OSS_BUCKET`: OSS Bucket名称
+- `OSS_ACCESS_KEY_ID`: 阿里云AccessKey ID
+- `OSS_ACCESS_KEY_SECRET`: 阿里云AccessKey Secret
+- `OSS_ENDPOINT`: OSS Endpoint（如：oss-cn-hangzhou.aliyuncs.com）
+- `OSS_BUCKET`: OSS Bucket名称
 
 ## 🚀 自动部署
 
@@ -71,10 +71,10 @@
 
 2. **设置环境变量**
    ```bash
-   export ALIYUN_ACCESS_KEY_ID="your_access_key_id"
-   export ALIYUN_ACCESS_KEY_SECRET="your_access_key_secret"
-   export ALIYUN_OSS_ENDPOINT="oss-cn-hangzhou.aliyuncs.com"
-   export ALIYUN_OSS_BUCKET="your_bucket_name"
+   export OSS_ACCESS_KEY_ID="your_access_key_id"
+   export OSS_ACCESS_KEY_SECRET="your_access_key_secret"
+   export OSS_ENDPOINT="oss-cn-hangzhou.aliyuncs.com"
+   export OSS_BUCKET="your_bucket_name"
    ```
 
 3. **执行部署**

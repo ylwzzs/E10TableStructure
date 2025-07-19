@@ -123,19 +123,19 @@ def sync_to_oss():
         sys.exit(1)
     
     # 从环境变量获取配置
-    access_key_id = os.getenv('ALIYUN_ACCESS_KEY_ID')
-    access_key_secret = os.getenv('ALIYUN_ACCESS_KEY_SECRET')
-    endpoint = os.getenv('ALIYUN_OSS_ENDPOINT')
-    bucket_name = os.getenv('ALIYUN_OSS_BUCKET')
+    access_key_id = os.getenv('OSS_ACCESS_KEY_ID')
+    access_key_secret = os.getenv('OSS_ACCESS_KEY_SECRET')
+    endpoint = os.getenv('OSS_ENDPOINT')
+    bucket_name = os.getenv('OSS_BUCKET')
     
     # 验证必要的环境变量
     if not all([access_key_id, access_key_secret, endpoint, bucket_name]):
         print("错误: 缺少必要的环境变量")
         print("请设置以下环境变量:")
-        print("- ALIYUN_ACCESS_KEY_ID")
-        print("- ALIYUN_ACCESS_KEY_SECRET")
-        print("- ALIYUN_OSS_ENDPOINT")
-        print("- ALIYUN_OSS_BUCKET")
+        print("- OSS_ACCESS_KEY_ID")
+        print("- OSS_ACCESS_KEY_SECRET")
+        print("- OSS_ENDPOINT")
+        print("- OSS_BUCKET")
         sys.exit(1)
     
     try:
@@ -246,10 +246,10 @@ jobs:
       
       - name: Deploy to Aliyun OSS
         env:
-          ALIYUN_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
-          ALIYUN_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
-          ALIYUN_OSS_ENDPOINT: ${{ secrets.ALIYUN_OSS_ENDPOINT }}
-          ALIYUN_OSS_BUCKET: ${{ secrets.ALIYUN_OSS_BUCKET }}
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT: ${{ secrets.OSS_ENDPOINT }}
+          OSS_BUCKET: ${{ secrets.OSS_BUCKET }}
         run: |
           python deploy.py
 '''
